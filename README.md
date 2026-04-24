@@ -1,4 +1,4 @@
-# 🛒 API de Microserviço para E-commerce com Dashboard
+# 👁️ Eyes on Technology - Gestão de Inventário de Hardware
 
 [![Python Version](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.109.0-009688.svg?style=flat&logo=FastAPI&logoColor=white)](https://fastapi.tiangolo.com)
@@ -9,53 +9,36 @@
 
 ## 📖 Visão Geral
 
-Este projeto é uma **solução completa de e-commerce** que combina uma **API RESTful de alta performance** (FastAPI) com um **Dashboard Administrativo intuitivo** (Streamlit). A aplicação utiliza **PostgreSQL** para persistência de dados, **Redis** para cache de alta velocidade e é totalmente orquestrada via **Docker Compose**.
+O **Eyes on Technology** é um sistema corporativo de gestão de inventário desenvolvido para uma empresa fictícia especializada em hardware e componentes de computador de alto desempenho. A solução combina um backend robusto em **FastAPI** com um dashboard administrativo intuitivo em **Streamlit**, permitindo o controle total de estoque, categorias e análise financeira do inventário.
 
-O diferencial deste projeto é a união de um backend robusto com uma interface visual moderna, permitindo que qualquer usuário gerencie o catálogo de produtos e categorias sem precisar de conhecimentos técnicos em terminal ou chamadas de API manuais.
-
----
-
-## 🚀 Tecnologias e Ferramentas
-
-A stack tecnológica foi escolhida para representar o padrão ouro do mercado atual para aplicações Python:
-
-| Tecnologia | Função no Projeto |
-| :--- | :--- |
-| **FastAPI** | Framework web assíncrono para construção da API robusta e escalável. |
-| **Streamlit** | Interface visual (Front-end) desenvolvida 100% em Python para gestão do catálogo. |
-| **PostgreSQL** | Banco de dados relacional principal para armazenamento seguro de dados. |
-| **Redis** | Camada de cache para otimizar o tempo de resposta em consultas de produtos. |
-| **Docker & Compose** | Containerização completa, garantindo que o projeto rode em qualquer máquina. |
-| **Pytest & Pytest-Cov** | Suíte de testes automatizados com relatórios visuais de cobertura. |
+Este projeto demonstra a aplicação de tecnologias modernas para resolver problemas reais de negócio, focando em **performance (Redis)**, **escalabilidade (Docker)** e **qualidade de software (Pytest)**.
 
 ---
 
-## 🏗️ Arquitetura e Estrutura de Diretórios
+## 🚀 Funcionalidades de Negócio
 
-O projeto adota uma estrutura modular, separando claramente as responsabilidades:
-
-```text
-ecommerce_api/
-├── app/                 # Backend (FastAPI)
-│   ├── api/             # Endpoints da API
-│   ├── crud/            # Lógica de negócio e acesso a dados
-│   ├── db/              # Conexões com PostgreSQL e Redis
-│   ├── models/          # Entidades do banco de dados
-│   ├── schemas/         # Validação de dados (Pydantic)
-│   ├── tests/           # Testes automatizados
-│   └── main.py          # Ponto de entrada da API
-├── dashboard/           # Front-end (Streamlit)
-│   ├── app.py           # Código da interface visual
-│   └── Dockerfile       # Receita de construção do dashboard
-├── .env                 # Variáveis de ambiente
-├── Dockerfile           # Receita de construção da API
-├── docker-compose.yml   # Orquestração de todos os serviços
-└── requirements.txt     # Dependências do projeto
-```
+*   **Dashboard de KPIs**: Visualização em tempo real do total de produtos, itens em estoque e valor total do inventário.
+*   **Monitoramento de Estoque Avançado**: Nova área dedicada para monitorar a disponibilidade de itens, com filtros por status (Em Estoque, Estoque Crítico, Esgotado).
+*   **Gestão de Ciclo de Vida**: Funcionalidades completas de **Criação, Leitura e Exclusão (CRUD)** para categorias e produtos diretamente pela interface visual.
+*   **Alertas Inteligentes**: Sistema que destaca automaticamente componentes com menos de 5 unidades, facilitando a reposição e evitando rupturas de estoque.
+*   **Busca e Filtros**: Ferramenta de pesquisa rápida para localizar componentes específicos no inventário.
+*   **Cache de Alta Performance**: Uso de Redis para garantir que as consultas ao catálogo sejam instantâneas.
 
 ---
 
-## ⚙️ Como Executar o Projeto Localmente
+## 🏗️ Arquitetura do Sistema
+
+O projeto adota uma estrutura modular seguindo os princípios de **Clean Architecture**:
+
+*   **Backend (FastAPI)**: API RESTful assíncrona responsável pela lógica de negócio e persistência.
+*   **Frontend (Streamlit)**: Interface visual 100% em Python para gestão administrativa, com formulários inteligentes e feedback visual.
+*   **Banco de Dados (PostgreSQL)**: Armazenamento relacional seguro e íntegro com suporte a exclusões em cascata controladas.
+*   **Cache (Redis)**: Camada de aceleração para consultas frequentes.
+*   **Infraestrutura (Docker)**: Orquestração completa de serviços para fácil implantação.
+
+---
+
+## ⚙️ Como Executar o Projeto
 
 ### Pré-requisitos
 *   [Docker](https://docs.docker.com/get-docker/) e [Docker Compose](https://docs.docker.com/compose/install/) instalados.
@@ -64,35 +47,24 @@ ecommerce_api/
 
 1.  **Clone o repositório:**
     ```bash
-    git clone https://github.com/SEU_USUARIO/ecommerce_api.git
-    cd ecommerce_api
+    git clone https://github.com/SEU_USUARIO/eyes-on-technology.git
+    cd eyes-on-technology
     ```
 
-2.  **Configure o arquivo `.env`:**
-    ```env
-    PROJECT_NAME=EcommerceAPI
-    DATABASE_URL=postgresql://user:password@db:5432/ecommerce_db
-    REDIS_URL=redis://redis:6379/0
-    SECRET_KEY=sua_chave_secreta_aqui
-    DEBUG=True
-    ```
-
-3.  **Inicie os Serviços:**
+2.  **Inicie os Serviços:**
     ```bash
     docker-compose up --build -d
     ```
 
-4.  **Acesse as Interfaces:**
-    *   **Dashboard Administrativo (Streamlit):** [http://localhost:8501](http://localhost:8501)
+3.  **Acesse as Interfaces:**
+    *   **Dashboard Administrativo:** [http://localhost:8501](http://localhost:8501)
     *   **Documentação da API (Swagger):** [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ---
 
-## 🧪 Qualidade de Software e Testes
+## 🧪 Qualidade e Testes
 
-A qualidade do código é garantida por uma suíte de testes que cobre 100% das operações críticas.
-
-### Executando os Testes e Gerando Relatórios
+A robustez do sistema é garantida por testes automatizados com 100% de cobertura nas rotas críticas.
 
 ```bash
 docker-compose exec app pytest --html=report.html --self-contained-html --cov=app app/tests/
@@ -102,4 +74,4 @@ docker-compose exec app pytest --html=report.html --self-contained-html --cov=ap
 
 ## 👨‍💻 Autor
 
-Desenvolvido por **[Tiago Luciano/Tigarias]** como parte de um portfólio profissional de Engenharia de Software.
+Desenvolvido por **[Seu Nome/Usuário]** como um projeto de portfólio profissional em Engenharia de Software.

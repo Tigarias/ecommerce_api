@@ -8,7 +8,7 @@ class ProductBase(BaseModel):
     price: float = Field(gt=0, description="O preço deve ser maior que zero")
     stock: int = Field(ge=0, description="O estoque não pode ser negativo")
     is_active: Optional[bool] = True
-    category_id: int
+    category_id: Optional[int] = None
 
 class ProductCreate(ProductBase):
     pass
