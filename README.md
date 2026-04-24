@@ -74,4 +74,4 @@ docker-compose exec app pytest --html=report.html --self-contained-html --cov=ap
 
 ## 👨‍💻 Autor
 
-Desenvolvido por **[Seu Nome/Usuário]** como um projeto de portfólio profissional em Engenharia de Software.
+Desenvolvido por **[Tiago Luciano/Tigarias]** como um projeto de portfólio profissional em Engenharia de Software.
